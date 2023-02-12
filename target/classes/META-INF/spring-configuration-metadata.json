@@ -1,0 +1,11 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "datasource.mybatis.mapper-locations",
+      "type": "java.lang.String",
+      "description": "Description for datasource.mybatis.mapper-locations."
+    }
+  ],
+  "hints": []
+}

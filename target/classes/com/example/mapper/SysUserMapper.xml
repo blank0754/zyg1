@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间-->
+<mapper namespace="com.example.mapper.SysUserMapper">
+<!--    <resultMap id="xwzjResultMap" type="SysUser">-->
+<!--        <result column="username" property="username"></result>-->
+<!--        <result column="password" property="password"></result>&lt;!&ndash;colum数据表的行&ndash;&gt;-->
+<!--    </resultMap>-->
+    <select id="findAll" resultType="com.example.entity.SysUser">
+
+        select * from user;
+
+    </select>
+    <select id="Login" resultType="com.example.entity.SysUser">
+        select * from admin where username =  #{username} and password = #{password}
+    </select>
+    <update id="change" parameterType="com.example.entity.SysUser">
+        update admin set username = #{username},password = #{password} where id = 1
+    </update>
+
+    <select id="selectopen" resultType="com.example.entity.Sysopen">
+        select * from user where equipmentId =  #{equipmentId} and iphone = #{iphone}
+    </select>
+
+    <select id="useradd" resultType="com.example.entity.Sysopen">
+    insert into datalist values(#{equipmentId},#{iphone},#{openTime},null)
+    </select>
+
+    <select id="userdelete" resultType="com.example.entity.Sysopen">
+        DELETE FROM user WHERE equipmentId = #{equipmentId} and iphone = #{iphone}
+    </select>
+
+    <select id="deletedevice" resultType="com.example.entity.Sysopen">
+        DELETE FROM user WHERE equipmentId = #{equipmentId}
+    </select>
+
+    <select id="add" resultType="com.example.entity.Sysopen">
+        insert into user values(null,#{equipmentId},#{iphone})
+    </select>
+
+    <select id="findpage" resultType="com.example.entity.Sysopen">
+        select * from datalist
+    </select>
+
+    <select id="userfindpage" resultType="com.example.entity.Sysopen">
+        SELECT * FROM user GROUP BY equipmentId, iphone
+    </select>
+
+
+
+
+
+
+</mapper>
